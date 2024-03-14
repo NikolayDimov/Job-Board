@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 import { getCompany } from "./db/companies.js";
-import { createJob, deleteJob, getJob, getJobs, getJobsByCompany } from "./db/jobs.js";
+import { createJob, deleteJob, updateJob, getJob, getJobs, getJobsByCompany } from "./db/jobs.js";
 
 export const resolvers = {
     Query: {
@@ -30,6 +30,10 @@ export const resolvers = {
         },
 
         deleteJob: (_root, { id }) => deleteJob(id),
+
+        updateJob: (_root, { input: { id, title, description } }) => {
+            return updateJob({ id, title, description });
+        },
     },
 
     Company: {
