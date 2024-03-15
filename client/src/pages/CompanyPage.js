@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getCompany } from "../lib/graphql/queries";
 import JobList from "../components/JobList";
+import { getCompany } from "../lib/graphql/queries";
 
 function CompanyPage() {
     const { companyId } = useParams();
@@ -10,7 +10,6 @@ function CompanyPage() {
         loading: true,
         error: false,
     });
-
     useEffect(() => {
         (async () => {
             try {
@@ -23,16 +22,14 @@ function CompanyPage() {
         })();
     }, [companyId]);
 
-    console.log("[CompanyPage] state:", state.company);
+    console.log("[CompanyPage] state:", state);
     const { company, loading, error } = state;
-
-    if (!loading) {
+    if (loading) {
         return <div>Loading...</div>;
     }
     if (error) {
         return <div className="has-text-danger">Data unavailable</div>;
     }
-
     return (
         <div>
             <h1 className="title">{company.name}</h1>
