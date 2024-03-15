@@ -134,7 +134,10 @@ export async function getJobs() {
 
     // AplloClient
     // destructuring
-    const { data } = await apolloClient.query({ query });
+    const { data } = await apolloClient.query({
+        query,
+        fetchPolicy: "network-only",
+    });
     return data.jobs;
     // not destructuring
     // const result = await apolloClient.query({ query });
