@@ -31,6 +31,8 @@ To get started with the Job Board Application, follow these steps:
     npm install
     ```
 
+    ![alt text](2AE53C13-9C87-4F02-8166-845002FC8562_1_201_a.jpeg)
+
 ## Server
 
 npm start open http://localhost:9000/graphql
